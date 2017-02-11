@@ -3,3 +3,11 @@
   width: 100px;
   float: left;
 }
+
+.img-box {
+  width: 90%; 
+  height: 500px; 
+  border: 1px dashed gray; 
+  text-align: center;
+  overflow: scroll;
+}

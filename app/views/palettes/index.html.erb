@@ -1,67 +1,11 @@
-<div id="dropbox" style="width: 90%; height: 200px; border: 1px dashed gray; text-align: center">Drop image here
-  <div id="image"></div>
+<h2>Drop image here</h2>
+<div id="dropbox" class="img-box">
+  <div id="imagebox"></div>
 </div>
 
-<div class="swatch-box" id="swatch1">Vibrant</div>
-<div class="swatch-box" id="swatch2">Muted</div>
-<div class="swatch-box" id="swatch3">Dark Vibrant</div>
-<div class="swatch-box" id="swatch4">Dark Muted</div>
-<div class="swatch-box" id="swatch5">Light Vibrant</div>
-<div class="swatch-box" id="swatch6">Light Muted</div>
-
-
-<script type="text/javascript">
-
-  var userimg = document.createElement('img');
-  var dropbox = document.getElementById('dropbox');
-
-  dropbox.addEventListener('dragover', function(imageFile) {
-    imageFile.stopPropagation();
-    imageFile.preventDefault();
-    imageFile.dataTransfer.dropEffect = 'copy';
-  });
-
-  dropbox.addEventListener('drop', function(imageFile) {
-    imageFile.stopPropagation();
-    imageFile.preventDefault();
-    var userfile = imageFile.dataTransfer.files[0];
-    if (userfile.type.match(/image.*/)) {
-      var reader = new FileReader();
-      reader.onload = function(image) {
-        var img = document.createElement('img');
-        userimg.setAttribute('src', image.target.result);
-      }
-      reader.readAsDataURL(userfile);
-    }
-  });
-
-  userimg.addEventListener('load', function() {
-    var vibrant = new Vibrant(userimg);
-    var swatches = vibrant.swatches()
-
-    // for (var swatch in swatches)
-    //   if (swatches.hasOwnProperty(swatch) && swatches[swatch])
-    //     console.log(swatch, swatches[swatch].getHex());
-
-    document.getElementById("image").innerHTML = '<img src="' + userimg.src +'" />';
-
-    document.getElementById("swatch1").style["background-color"] = swatches.Vibrant.getHex();
-    document.getElementById("swatch1").style["color"] = swatches.Vibrant.getTitleTextColor();
-
-    document.getElementById("swatch2").style["background-color"] = swatches.Muted.getHex();
-    document.getElementById("swatch2").style["color"] = swatches.Muted.getTitleTextColor();
-
-    document.getElementById("swatch3").style["background-color"] = swatches.DarkVibrant.getHex();
-    document.getElementById("swatch3").style["color"] = swatches.DarkVibrant.getTitleTextColor();
-
-    document.getElementById("swatch4").style["background-color"] = swatches.DarkMuted.getHex();
-    document.getElementById("swatch4").style["color"] = swatches.DarkMuted.getTitleTextColor();
-
-    document.getElementById("swatch5").style["background-color"] = swatches.LightVibrant.getHex();
-    document.getElementById("swatch5").style["color"] = swatches.LightVibrant.getTitleTextColor();
-
-    document.getElementById("swatch6").style["background-color"] = swatches.LightMuted.getHex();
-    document.getElementById("swatch6").style["color"] = swatches.LightMuted.getTitleTextColor();
-
-  });
-</script>
+<div class="swatch-box" id="swatch1"></div>
+<div class="swatch-box" id="swatch2"></div>
+<div class="swatch-box" id="swatch3"></div>
+<div class="swatch-box" id="swatch4"></div>
+<div class="swatch-box" id="swatch5"></div>
+<div class="swatch-box" id="swatch6"></div>

@@ -1,13 +1,17 @@
 <h2>Drop image here</h2>
+
+<input type="file" id="imguploader">
+
 <div id="dropbox" class="img-box">
   <div id="imagebox"></div>
+  <image id="image">
 </div>
 
-<div class="swatch-box" id="swatch1"></div>
-<div class="swatch-box" id="swatch2"></div>
-<div class="swatch-box" id="swatch3"></div>
-<div class="swatch-box" id="swatch4"></div>
-<div class="swatch-box" id="swatch5"></div>
-<div class="swatch-box" id="swatch6"></div>
+<% 5.times do |number| %>
+  <div class="swatch-box" id="swatch<%= number %>"></div>
+<% end %>
 
-<input type="text" id="color_array"></input>
+<%= form_tag '/palette' do %>
+  <%= hidden_field_tag :color_array, nil, id: 'color_array' %>
+  <%= submit_tag 'Save' %>
+<% end %>

@@ -1,18 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #FAFAFA;
+}
+
+h1, h2, h3 {
+  font-family: "Muli", sans-serif;
+  color: #616161;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 2rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+}
+
+.header {
+  padding: 0 10px;
+  h2, h3 {
+    display: inline;
+  }
+}
+
 .swatch-box {
   height: 100px;
   width: 100px;
   float: left;
-  border: 1px solid gray;
+  border: 1px solid #BDBDBD;
   margin: 2px;
   text-align: center;
   line-height: 100px;
+  background-color: #fff;
 }
 
 .img-box {
   width: auto;
-  max-width: 50%; 
+  max-width: 510px; 
   height: 300px; 
-  border: 1px dotted gray; 
+  border: 1px dotted #616161; 
   text-align: center;
   overflow: scroll;
+  padding: 10px;
+  margin: 5px 10px;
+  background-color: #fff;
+}
+
+.swatchrow {
+  display: inline-block;
+  margin: 5px 10px;
 }

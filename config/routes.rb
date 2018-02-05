@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/' => 'palettes#index'
-  post '/' => 'palettes#create'
+  post '/palette' => 'palettes#create'
 
   post '/' => 'palette_colors#create'
 

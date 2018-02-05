@@ -1,16 +1,24 @@
-<h2>Drop image here or Choose file</h2>
-<input type="file" id="imguploader">
+<h1>ColorBar</h1>
+
+<div class="header">
+  <h3>Drop image here</h3>
+  or
+  <h3>Choose file</h3>
+  <input type="file" id="imguploader">
+</div>
 
 <div id="dropbox" class="img-box">
   <div id="imagebox"></div>
   <image id="image">
 </div>
 
-<% 5.times do |number| %>
-  <div class="swatch-box" id="swatch<%= number %>"></div>
-<% end %>
+<div class="swatchrow">
+  <% 5.times do |number| %>
+    <div class="swatch-box" id="swatch<%= number %>"></div>
+  <% end %>
 
-<%= form_tag '/palette' do %>
-  <%= hidden_field_tag :color_array, nil, id: 'color_array' %>
-  <%= submit_tag 'Save' %>
-<% end %>
+  <%= form_tag '/palette' do %>
+    <%= hidden_field_tag :color_array, nil, id: 'color_array' %>
+    <%= submit_tag 'Save Palette' %>
+  <% end %>
+</div>

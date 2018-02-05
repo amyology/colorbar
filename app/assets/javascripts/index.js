@@ -1,7 +1,7 @@
-var userimg = document.createElement('img');
-var dropbox = document.getElementById('dropbox');
-var imagebox = document.getElementById("imagebox");
-var imgtarget = document.getElementById("image");
+var userimg = document.createElement('img'),
+    dropbox = document.getElementById('dropbox'),
+    imagebox = document.getElementById("imagebox"),
+    imgtarget = document.getElementById("image");
 
 dropbox.addEventListener('dragover', function(imageFile) {
   imageFile.stopPropagation();
@@ -42,58 +42,54 @@ imgtarget.addEventListener('load', function() {
 });
 
 function populate(source){
-  var vibrant = new Vibrant(source);
-  var swatches = vibrant.swatches();
-  var colorArray = [];
+  var vibrant = new Vibrant(source),
+      swatches = vibrant.swatches(),
+      colorArray = [];
 
   if (swatches.Vibrant){
-    colorVibrant = swatches.Vibrant.getHex();
-    document.getElementById("swatch0").style["background-color"] = colorVibrant;
-    document.getElementById("swatch0").style["color"] = swatches.Vibrant.getTitleTextColor();
-    document.getElementById("swatch0").innerHTML = colorVibrant;
-    colorArray.push(colorVibrant);
+    var color = swatches.Vibrant.getHex(),
+        el = document.getElementById("swatch0");
+    el.style["background-color"] = color;
+    el.style["color"] = swatches.Vibrant.getTitleTextColor();
+    el.innerHTML = color;
+    colorArray.push(color);
   };
 
   if (swatches.Muted){
-    colorMuted = swatches.Muted.getHex(); 
-    document.getElementById("swatch1").style["background-color"] = colorMuted;
-    document.getElementById("swatch1").style["color"] = swatches.Muted.getTitleTextColor();
-    document.getElementById("swatch1").innerHTML = colorMuted;
-    colorArray.push(colorMuted);
+    var color = swatches.Muted.getHex(),
+        el = document.getElementById("swatch1");
+    el.style["background-color"] = color;
+    el.style["color"] = swatches.Muted.getTitleTextColor();
+    el.innerHTML = color;
+    colorArray.push(color);
   };
 
   if (swatches.DarkVibrant){
-    colorDarkVibrant = swatches.DarkVibrant.getHex();
-    document.getElementById("swatch2").style["background-color"] = colorDarkVibrant;
-    document.getElementById("swatch2").style["color"] = swatches.DarkVibrant.getTitleTextColor();
-    document.getElementById("swatch2").innerHTML = colorDarkVibrant;
-    colorArray.push(colorDarkVibrant);
+    var color = swatches.DarkVibrant.getHex(),
+        el = document.getElementById("swatch2");
+    el.style["background-color"] = color;
+    el.style["color"] = swatches.DarkVibrant.getTitleTextColor();
+    el.innerHTML = color;
+    colorArray.push(color);
   };
 
   if (swatches.DarkMuted){
-    colorDarkMuted = swatches.DarkMuted.getHex();
-    document.getElementById("swatch3").style["background-color"] = colorDarkMuted;
-    document.getElementById("swatch3").style["color"] = swatches.DarkMuted.getTitleTextColor();
-    document.getElementById("swatch3").innerHTML = colorDarkMuted;
-    colorArray.push(colorDarkMuted);
+    var color = swatches.DarkMuted.getHex(),
+        el = document.getElementById("swatch3");
+    el.style["background-color"] = color;
+    el.style["color"] = swatches.DarkMuted.getTitleTextColor();
+    el.innerHTML = color;
+    colorArray.push(color);
   };
 
   if (swatches.LightVibrant){
-    colorLightVibrant = swatches.LightVibrant.getHex();
-    document.getElementById("swatch4").style["background-color"] = colorLightVibrant;
-    document.getElementById("swatch4").style["color"] = swatches.LightVibrant.getTitleTextColor();
-    document.getElementById("swatch4").innerHTML = colorLightVibrant;
-    colorArray.push(colorLightVibrant);
+    var color = swatches.LightVibrant.getHex(),
+        el = document.getElementById("swatch4");
+    el.style["background-color"] = color;
+    el.style["color"] = swatches.LightVibrant.getTitleTextColor();
+    el.innerHTML = color;
+    colorArray.push(color);
   };
 
-  // if (swatches.LightMuted){
-  //   colorLightMuted = swatches.LightMuted.getHex();
-  //   document.getElementById("swatch5").style["background-color"] = colorLightMuted;
-  //   document.getElementById("swatch5").style["color"] = swatches.LightMuted.getTitleTextColor();
-  //   document.getElementById("swatch5").innerHTML = colorLightMuted;
-  //   colorArray.push(colorLightMuted);
-  // };
-
   document.getElementById("color_array").value = colorArray;
-  // console.log(colorArray);
 }

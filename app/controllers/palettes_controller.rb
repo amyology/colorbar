@@ -7,7 +7,7 @@ class PalettesController < ApplicationController
     @user_id = 1
     #change id after users set up
 
-    @palette = Palette.new(user_id: @user_id)
+    @palette = Palette.create(user_id: @user_id)
 
     color_array = params[:color_array]
 
@@ -18,11 +18,7 @@ class PalettesController < ApplicationController
       PaletteColor.create(palette_id: @palette.id, color_id: @palette_color.id)
     end
 
-    if @palette.save
-      redirect_to '/'
-    else
-      render :new
-    end
+    redirect_to '/'
 
   end
 end

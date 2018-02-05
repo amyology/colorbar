@@ -1,7 +1,7 @@
 class ColorsController < ApplicationController
   def create
-    Color.find_or_create_by(
+    Color.create(
       value: params[:value]
-      )
+    )
   end
 end
